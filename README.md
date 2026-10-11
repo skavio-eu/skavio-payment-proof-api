@@ -6,8 +6,8 @@ Official **noncustodial native USDC invoicing and payment notification** integra
 - [REST API v1 specification](openapi/openapi.json) (OpenAPI 3.1)
 - [API reference and event documentation](docs/API_V1.md)
 - [Quickstart](docs/quickstart.md)
-- [Python SDK](sdk/python/README.md) — source install: `python -m pip install ./sdk/python`
-- [JavaScript/TypeScript SDK](sdk/typescript/README.md) — Node 18+ ESM and TypeScript declarations; install: `npm install ./sdk/typescript`
+- [Python SDK](sdk/python/README.md) — `python -m pip install skavio-payment-proof==1.0.0`
+- [JavaScript/TypeScript SDK](sdk/typescript/README.md) — Node 18+ ESM and TypeScript declarations; `npm install @skavio-llc/payment-proof@1.0.0`
 - [Postman collection](postman/Skavio-Payment-Proof-v1.postman_collection.json) and [placeholder environment](postman/Skavio-Payment-Proof-v1.postman_environment.json)
 - [HMAC and durable deduplication examples](examples)
 - [Live developer docs](https://www.skavio.eu/proof/developers)
@@ -32,4 +32,4 @@ Synthetic only; no real settlement or customer emails. The backend integration s
 
 License: [MIT](LICENSE), consistent with the established Skavio Processing API repository. © 2026 Skavio.
 
-Publishing this source does **not** publish packages to PyPI or npm. Clone or install from local source until a separate registry release.
+Both SDKs are publicly available on the official registries: [PyPI skavio-payment-proof](https://pypi.org/project/skavio-payment-proof/1.0.0/) and [npm @skavio-llc/payment-proof](https://www.npmjs.com/package/@skavio-llc/payment-proof/v/1.0.0). Both were verified by clean registry install and import. A future GitHub release is a separate event; publishing workflows require registered trusted publishers.

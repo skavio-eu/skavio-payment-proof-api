@@ -1,6 +1,6 @@
 # Python Payment Proof 1.0.0
 
-Python >=3.9; no runtime dependencies. From the repository root: `python -m pip install -e integration_docs/sdk/python`. See [release contract and safety](../README.md).
+Python >=3.9; no runtime dependencies. Install from PyPI: `python -m pip install skavio-payment-proof==1.0.0`. From this repository root, source install is `python -m pip install ./sdk/python`. See [release contract and safety](../README.md).
 
 ```python
 import os
