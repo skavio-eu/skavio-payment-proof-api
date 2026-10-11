@@ -1,0 +1,674 @@
+{
+  "info": {
+    "name": "Skavio Payment Proof v1 \u2014 SDK 1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "LOCAL REVIEW TEMPLATE. Do not run against real customers. No Processing API, transfers or wallet signing. OpenAPI is REST source of truth. Persist idempotency_key per operation; clear it only for a new operation. Webhook verification must use SDK raw-byte verifier and durable dedup; mock script below is illustrative only."
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{payment_proof_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://www.skavio.eu/proof"
+    },
+    {
+      "key": "payment_proof_api_key",
+      "value": ""
+    },
+    {
+      "key": "idempotency_key",
+      "value": ""
+    },
+    {
+      "key": "resource_id",
+      "value": "SYNTHETIC_RESOURCE_ID"
+    },
+    {
+      "key": "csrf_token",
+      "value": ""
+    },
+    {
+      "key": "key_id",
+      "value": "SYNTHETIC_KEY_ID"
+    },
+    {
+      "key": "webhook_id",
+      "value": "SYNTHETIC_WEBHOOK_ID"
+    },
+    {
+      "key": "delivery_id",
+      "value": "SYNTHETIC_DELIVERY_ID"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "if (pm.request.method === 'POST' && !pm.variables.get('idempotency_key')) { pm.variables.set('idempotency_key', pm.variables.replaceIn('{{$guid}}')); }"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Synthetic HMAC demonstration only; SDK verifies actual raw bytes, timestamp and event ID.",
+          "const CryptoJS = require('crypto-js');",
+          "const raw = '{\"id\":\"evt_synthetic\",\"api_version\":\"1.0\"}';",
+          "const timestamp = '1791720000';",
+          "const signature = CryptoJS.HmacSHA256(timestamp + '.' + raw, 'synthetic-only-secret').toString();",
+          "pm.test('Synthetic webhook HMAC has SHA256 length', () => pm.expect(signature.length).to.equal(64));",
+          "// Never use this demonstration as a production receiver or durable dedup store."
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "REST (OpenAPI)",
+      "item": [
+        {
+          "name": "GET /v1/me",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/v1/me",
+            "description": "Account entitlements and verified receiving wallets"
+          }
+        },
+        {
+          "name": "GET /v1/requests",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/v1/requests",
+            "description": "Bounded tenant requests"
+          }
+        },
+        {
+          "name": "POST /v1/requests",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Idempotency-Key",
+                "value": "{{idempotency_key}}"
+              }
+            ],
+            "url": "{{base_url}}/v1/requests",
+            "description": "Create request without automatic mail or payment",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"wallet_id\": \"synthetic\",\n  \"amount_usdc\": \"29.00\",\n  \"description\": \"synthetic\",\n  \"customer_label\": \"synthetic\",\n  \"expected_payer\": \"synthetic\",\n  \"valid_hours\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "GET /v1/contacts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/v1/contacts",
+            "description": "Bounded tenant contacts"
+          }
+        },
+        {
+          "name": "POST /v1/contacts",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Idempotency-Key",
+                "value": "{{idempotency_key}}"
+              }
+            ],
+            "url": "{{base_url}}/v1/contacts",
+            "description": "Create contact without automatic mail or payment",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"legal_name\": \"Synthetic Buyer\",\n  \"email\": \"buyer@example.test\",\n  \"address\": \"synthetic\",\n  \"reference\": \"synthetic\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "GET /v1/invoices",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/v1/invoices",
+            "description": "Bounded tenant invoices"
+          }
+        },
+        {
+          "name": "POST /v1/invoices",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Idempotency-Key",
+                "value": "{{idempotency_key}}"
+              }
+            ],
+            "url": "{{base_url}}/v1/invoices",
+            "description": "Create invoice without automatic mail or payment",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_id\": \"synthetic\",\n  \"wallet_id\": \"synthetic\",\n  \"due_date\": \"2030-01-01\",\n  \"items\": [\n    {\n      \"description\": \"synthetic\",\n      \"quantity\": \"synthetic\",\n      \"unit_usdc\": \"synthetic\"\n    }\n  ],\n  \"tax_mode\": \"synthetic\",\n  \"tax_rate\": \"synthetic\",\n  \"tax_usdc\": \"synthetic\",\n  \"tax_notes\": \"synthetic\",\n  \"accounting\": {},\n  \"send_now\": false,\n  \"reminder_opt_in\": false,\n  \"customer_receipt_opt_in\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "GET /v1/requests/{rid}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/v1/requests/{rid}",
+            "description": "Get tenant request"
+          }
+        },
+        {
+          "name": "GET /v1/invoices/{iid}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/v1/invoices/{iid}",
+            "description": "Get tenant invoice"
+          }
+        },
+        {
+          "name": "POST /v1/invoices/{iid}/send",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Idempotency-Key",
+                "value": "{{idempotency_key}}"
+              }
+            ],
+            "url": "{{base_url}}/v1/invoices/{iid}/send",
+            "description": "Queue email only after actual explicit user approval",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_approved\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "throw new Error('Sending email is blocked in this template. Obtain actual approval before removing this guard.');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET /v1/events",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/v1/events",
+            "description": "Retained event stream; not historical delivery replay"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Management (dashboard cookie; guarded)",
+      "item": [
+        {
+          "name": "GET management ",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/integrations",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "X-CSRF-Token",
+                "value": "{{csrf_token}}"
+              },
+              {
+                "key": "Origin",
+                "value": "https://www.skavio.eu"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Dashboard session cookie + CSRF required. Bearer forbidden. Not in REST OpenAPI; see API_V1.md."
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "throw new Error('Management is blocked in the template; review session, CSRF and mutation intent before removing guard.');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST management /keys",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/integrations/keys",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "X-CSRF-Token",
+                "value": "{{csrf_token}}"
+              },
+              {
+                "key": "Origin",
+                "value": "https://www.skavio.eu"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Dashboard session cookie + CSRF required. Bearer forbidden. Not in REST OpenAPI; see API_V1.md.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Synthetic integration\", \"scopes\": [\"read\"]}"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "throw new Error('Management is blocked in the template; review session, CSRF and mutation intent before removing guard.');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST management /keys/{{key_id}}/revoke",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/integrations/keys/{{key_id}}/revoke",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "X-CSRF-Token",
+                "value": "{{csrf_token}}"
+              },
+              {
+                "key": "Origin",
+                "value": "https://www.skavio.eu"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Dashboard session cookie + CSRF required. Bearer forbidden. Not in REST OpenAPI; see API_V1.md.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "throw new Error('Management is blocked in the template; review session, CSRF and mutation intent before removing guard.');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST management /webhooks",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/integrations/webhooks",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "X-CSRF-Token",
+                "value": "{{csrf_token}}"
+              },
+              {
+                "key": "Origin",
+                "value": "https://www.skavio.eu"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Dashboard session cookie + CSRF required. Bearer forbidden. Not in REST OpenAPI; see API_V1.md.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"url\": \"https://receiver.example.test/webhook\", \"events\": [\"payment.confirmed\"]}"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "throw new Error('Management is blocked in the template; review session, CSRF and mutation intent before removing guard.');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST management /webhooks/{{webhook_id}}/disable",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/integrations/webhooks/{{webhook_id}}/disable",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "X-CSRF-Token",
+                "value": "{{csrf_token}}"
+              },
+              {
+                "key": "Origin",
+                "value": "https://www.skavio.eu"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Dashboard session cookie + CSRF required. Bearer forbidden. Not in REST OpenAPI; see API_V1.md.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "throw new Error('Management is blocked in the template; review session, CSRF and mutation intent before removing guard.');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST management /webhooks/{{webhook_id}}/delete",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/integrations/webhooks/{{webhook_id}}/delete",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "X-CSRF-Token",
+                "value": "{{csrf_token}}"
+              },
+              {
+                "key": "Origin",
+                "value": "https://www.skavio.eu"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Dashboard session cookie + CSRF required. Bearer forbidden. Not in REST OpenAPI; see API_V1.md.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "throw new Error('Management is blocked in the template; review session, CSRF and mutation intent before removing guard.');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST management /webhooks/{{webhook_id}}/rotate",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/integrations/webhooks/{{webhook_id}}/rotate",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "X-CSRF-Token",
+                "value": "{{csrf_token}}"
+              },
+              {
+                "key": "Origin",
+                "value": "https://www.skavio.eu"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Dashboard session cookie + CSRF required. Bearer forbidden. Not in REST OpenAPI; see API_V1.md.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "throw new Error('Management is blocked in the template; review session, CSRF and mutation intent before removing guard.');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET management /deliveries?limit=25",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/integrations/deliveries?limit=25",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "X-CSRF-Token",
+                "value": "{{csrf_token}}"
+              },
+              {
+                "key": "Origin",
+                "value": "https://www.skavio.eu"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Dashboard session cookie + CSRF required. Bearer forbidden. Not in REST OpenAPI; see API_V1.md."
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "throw new Error('Management is blocked in the template; review session, CSRF and mutation intent before removing guard.');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST management /deliveries/{{delivery_id}}/retry",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/integrations/deliveries/{{delivery_id}}/retry",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "X-CSRF-Token",
+                "value": "{{csrf_token}}"
+              },
+              {
+                "key": "Origin",
+                "value": "https://www.skavio.eu"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Dashboard session cookie + CSRF required. Bearer forbidden. Not in REST OpenAPI; see API_V1.md.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "throw new Error('Management is blocked in the template; review session, CSRF and mutation intent before removing guard.');"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

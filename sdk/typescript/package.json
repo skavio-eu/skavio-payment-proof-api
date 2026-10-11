@@ -1,0 +1,1 @@
+{"name":"@skavio/payment-proof","version":"1.0.0","type":"module","description":"Skavio Payment Proof API SDK","engines":{"node":">=18"},"exports":{".":{"types":"./src/index.d.ts","import":"./src/index.js"}},"types":"./src/index.d.ts","files":["src","README.md"],"scripts":{"test":"node --test"}}

@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "skavio-payment-proof"
+version = "1.0.0"
+description = "Skavio Payment Proof API client"
+requires-python = ">=3.9"
+[tool.setuptools.packages.find]
+include = ["skavio_payment_proof*"]

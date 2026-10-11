@@ -1,0 +1,121 @@
+{
+  "Error": {
+    "error": "synthetic"
+  },
+  "RequestCreate": {
+    "wallet_id": "synthetic",
+    "amount_usdc": "29.00",
+    "description": "synthetic",
+    "customer_label": "synthetic",
+    "expected_payer": "synthetic",
+    "valid_hours": 1
+  },
+  "Request": {
+    "id": "synthetic",
+    "wallet_id": "synthetic",
+    "network": "synthetic",
+    "receiver_address": "synthetic",
+    "customer_label": "synthetic",
+    "description": "synthetic",
+    "status": "synthetic",
+    "url": "synthetic",
+    "amount_atomic": 1,
+    "quoted_amount_atomic": 1,
+    "expected_payer": "synthetic",
+    "created_at": 1,
+    "expires_at": 1,
+    "tx_hash": "synthetic",
+    "verified_at": 1
+  },
+  "ContactCreate": {
+    "legal_name": "Synthetic Buyer",
+    "email": "buyer@example.test",
+    "address": "synthetic",
+    "reference": "synthetic"
+  },
+  "Contact": {
+    "id": "synthetic",
+    "legal_name": "synthetic",
+    "email": "synthetic",
+    "address": "synthetic",
+    "reference": "synthetic"
+  },
+  "Item": {
+    "description": "synthetic",
+    "quantity": "synthetic",
+    "unit_usdc": "synthetic"
+  },
+  "InvoiceCreate": {
+    "customer_id": "synthetic",
+    "wallet_id": "synthetic",
+    "due_date": "2030-01-01",
+    "items": [
+      {
+        "description": "synthetic",
+        "quantity": "synthetic",
+        "unit_usdc": "synthetic"
+      }
+    ],
+    "tax_mode": "synthetic",
+    "tax_rate": "synthetic",
+    "tax_usdc": "synthetic",
+    "tax_notes": "synthetic",
+    "accounting": {},
+    "send_now": false,
+    "reminder_opt_in": false,
+    "customer_receipt_opt_in": false
+  },
+  "Invoice": {
+    "id": "synthetic",
+    "customer_id": "synthetic",
+    "request_id": "synthetic",
+    "number": "synthetic",
+    "status": "synthetic",
+    "network": "synthetic",
+    "receiver": "synthetic",
+    "issued_at": 1,
+    "due_at": 1,
+    "total_atomic": 1,
+    "payment_atomic": 1,
+    "tax_atomic": 1,
+    "items": [
+      {}
+    ]
+  },
+  "Me": {
+    "api_version": "1.0",
+    "id": "synthetic",
+    "plan": {},
+    "wallets": [
+      {
+        "id": "synthetic",
+        "network": "synthetic",
+        "address": "synthetic"
+      }
+    ]
+  },
+  "Event": {
+    "id": "synthetic",
+    "api_version": "1.0",
+    "type": "payment_request.created",
+    "occurred_at": 1,
+    "data": {
+      "request_id": "synthetic",
+      "invoice_id": "synthetic",
+      "number": "synthetic",
+      "network": "synthetic",
+      "status": "synthetic",
+      "amount_atomic": 1,
+      "quoted_amount_atomic": 1,
+      "tx_hash": "synthetic",
+      "verified_at": 1
+    }
+  },
+  "SendApproval": {
+    "user_approved": true
+  },
+  "SendResult": {
+    "id": "synthetic",
+    "mail_status": "synthetic"
+  }
+}
