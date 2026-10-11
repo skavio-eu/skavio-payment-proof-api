@@ -1,9 +1,9 @@
 # Node / TypeScript Payment Proof 1.0.0
 
-Node >=18, native fetch, ESM JavaScript plus type declarations, no runtime dependencies. Planned name `@skavio/payment-proof`, not published. Local install: `npm install ./integration_docs/sdk/typescript` from the repo root.
+Node >=18, native fetch, ESM JavaScript plus type declarations, no runtime dependencies. Planned name `@skavio-llc/payment-proof`, not published. Local install: `npm install ./integration_docs/sdk/typescript` from the repo root.
 
 ```js
-import {PaymentProofClient, verifyWebhookSignature} from '@skavio/payment-proof';
+import {PaymentProofClient, verifyWebhookSignature} from '@skavio-llc/payment-proof';
 const client = new PaymentProofClient({apiKey: process.env.SKAVIO_PROOF_KEY});
 const account = await client.getAccount();
 // Persist key before this operation; never replace it for an uncertain retry.

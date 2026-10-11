@@ -1,5 +1,5 @@
 {
-  "name": "@skavio/payment-proof",
+  "name": "@skavio-llc/payment-proof",
   "version": "1.0.0",
   "type": "module",
   "description": "Skavio Payment Proof API SDK",

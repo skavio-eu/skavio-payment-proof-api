@@ -16,7 +16,7 @@ Node >=18, native fetch, no runtime dependencies, ESM only:
 npm install ./integration_docs/sdk/typescript
 ```
 
-The planned package name is `@skavio/payment-proof`; do not assume it exists on npm. JavaScript and schema-derived `.d.ts` declarations ship together. TypeScript consumers using Node types need their usual development `typescript` and `@types/node` setup. CJS is unsupported. The declaration compiler and minimum-runtime compatibility must be checked by the release supervisor; neither toolchain is installed here.
+The planned package name is `@skavio-llc/payment-proof`; do not assume it exists on npm. JavaScript and schema-derived `.d.ts` declarations ship together. TypeScript consumers using Node types need their usual development `typescript` and `@types/node` setup. CJS is unsupported. The declaration compiler and minimum-runtime compatibility must be checked by the release supervisor; neither toolchain is installed here.
 
 See [Python](python/README.md) and [Node](typescript/README.md) usage. [Actual test report](../SDK_TEST_REPORT_20261011.md) records commands and limitations.
 
