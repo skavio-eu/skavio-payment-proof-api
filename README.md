@@ -2,6 +2,16 @@
 
 Official **noncustodial native USDC invoicing and payment notification** integration resources for [Skavio Payment Proof](https://www.skavio.eu/proof/).
 
+## AI agents and MCP integrations
+
+Skavio LLC also operates separate hosted MCP / x402 blockchain tools for AI agents. Their discovery, native USDC transfer verification, recipient/amount matching, PDF payment evidence and DNS/TLS audit tools are **not** the Payment Proof merchant dashboard and do **not** share Proof API credentials.
+
+- [Skavio Agent Tools for Cursor and Claude Desktop](https://github.com/skavio-eu/skavio-agent-tools/blob/main/MCP_CLIENT_SETUP.md) — ready-to-copy MCP configuration and payment limitations.
+- [Cursor MCP setup JSON](https://github.com/skavio-eu/skavio-agent-tools/blob/main/examples/cursor-mcp.json).
+- [Claude Desktop MCP setup JSON](https://github.com/skavio-eu/skavio-agent-tools/blob/main/examples/claude-desktop-mcp.json).
+- [Skavio Processing MCP / OCR and PDF API](https://github.com/skavio-eu/skavio-processing-api/blob/main/MCP_CLIENT_SETUP.md) — independent company OAuth and shared processing credits.
+- [Official MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=skavio) · [Glama catalog](https://glama.ai/mcp/connectors/eu.skavio/paid-micro-apis) · [PayAPI Market](https://payapi.market/) (Skavio marketplace submissions pending third-party review).
+
 ## Resources
 - [REST API v1 specification](openapi/openapi.json) (OpenAPI 3.1)
 - [API reference and event documentation](docs/API_V1.md)
