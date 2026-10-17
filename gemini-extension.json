@@ -1,0 +1,13 @@
+{
+  "name": "skavio-payment-proof-api",
+  "version": "1.0.0",
+  "description": "Connect Gemini CLI to Skavio's hosted USDC payment-verification and evidence MCP via Streamable HTTP; paid operations require separate x402 Base USDC wallet support.",
+  "mcpServers": {
+    "skavio-proof": {
+      "httpUrl": "https://www.skavio.eu/mcp",
+      "timeout": 30000,
+      "description": "Skavio remote read-only blockchain verification, exact recipient/amount match, proof PDF, DNS/TLS; free discovery, paid x402 calls on Base."
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}
