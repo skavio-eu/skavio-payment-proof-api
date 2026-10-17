@@ -10,7 +10,7 @@ Skavio LLC also operates separate hosted MCP / x402 blockchain tools for AI agen
 - [Cursor MCP setup JSON](https://github.com/skavio-eu/skavio-agent-tools/blob/main/examples/cursor-mcp.json).
 - [Claude Desktop MCP setup JSON](https://github.com/skavio-eu/skavio-agent-tools/blob/main/examples/claude-desktop-mcp.json).
 - [Skavio Processing MCP / OCR and PDF API](https://github.com/skavio-eu/skavio-processing-api/blob/main/MCP_CLIENT_SETUP.md) — independent company OAuth and shared processing credits.
-PayAPI Market publicly lists and settlement-verifies the HTTP Verify route only: https://payapi.market/api/skavio-usdc-transaction-verification . Other route settlement verification is not asserted.
+PayAPI now publishes three distinct live Skavio listings with independent historical settlement receipts. See the route-specific links and prices below; a marketplace receipt for one route does not verify another route.
 
 ## Resources
 - [REST API v1 specification](openapi/openapi.json) (OpenAPI 3.1)
@@ -55,7 +55,7 @@ Skavio USDC Payment Verification — x402 API inspects native Circle USDC transf
 - [Skavio USDC Payment Verification & Proof MCP](https://registry.modelcontextprotocol.io/v0.1/servers/eu.skavio%2Fpaid-micro-apis/versions/1.1.1), version **1.1.1**. Stable registry namespace and tool IDs are unchanged. Connect using `https://www.skavio.eu/mcp` (Streamable HTTP).
 - MCP has four paid blockchain/domain tools (`verify_native_usdc`, `match_native_usdc_payment`, `usdc_transfer_evidence_pdf`, `domain_dns_tls_audit`), two free discovery tools, and twelve separate authenticated AgentTools processing/job/wallet relays. The DNS/TLS audit is 0.05 USDC and is not a vulnerability scan.
 - **A standard MCP client without a wallet x402 extension cannot automatically pay.** Discovery is free. Paid MCP retries preserve `params._meta["x402/payment"]`; HTTP retries use `PAYMENT-SIGNATURE`. Never send a private key or seed phrase. No custody or automatic spending is created by adding a server.
-- [PayAPI listing](https://payapi.market/api/skavio-usdc-transaction-verification) is publicly listed and settlement-verified for **HTTP Verify only**. Match and PDF are not claimed settlement-verified by that marketplace.
+- PayAPI publishes separate live listings and historical settlement receipts for [HTTP Verify, 0.02 USDC](https://payapi.market/api/skavio-usdc-transaction-verification), [exact recipient/amount Match, 0.03 USDC](https://payapi.market/api/skavio-usdc-recipient-and-amount-match), and [blockchain PDF evidence, 0.05 USDC](https://payapi.market/api/skavio-usdc-verification-and-pdf-payment-evidence). Each route was independently read back on 2026-10-17, and each prior Base USDC receipt was checked read-only. No new payment was made for this documentation update. This is blockchain evidence, not a tax invoice.
 - RPC availability and finality affect results. No fixed latency SLA is promised. EVM requests use a 32-byte 0x hash; Solana uses its transaction signature. Match takes a recipient wallet and a positive exact USDC decimal string with at most six decimal places.
 
 Cursor `.cursor/mcp.json`:
