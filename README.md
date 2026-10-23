@@ -2,6 +2,8 @@
 
 Official **noncustodial native USDC invoicing and payment notification** integration resources for [Skavio Payment Proof](https://www.skavio.eu/proof/).
 
+**Start without Stripe:** [Accept native USDC payments with your own wallet — step-by-step](guides/accept-usdc-without-stripe.md) · **Deutsch:** [USDC-Zahlungen ohne Stripe](guides/usdc-zahlungen-ohne-stripe.md). [Try the 7-day Payment Proof trial](https://www.skavio.eu/proof/?utm_source=github&utm_medium=readme&utm_campaign=usdc_merchant_launch_20261023).
+
 ## AI agents and MCP integrations
 
 Skavio LLC also operates separate hosted MCP / x402 blockchain tools for AI agents. Their discovery, native USDC transfer verification, recipient/amount matching, PDF payment evidence and DNS/TLS audit tools are **not** the Payment Proof merchant dashboard and do **not** share Proof API credentials.
