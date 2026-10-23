@@ -2,7 +2,7 @@
 
 **Audience:** independent developers, freelancers, online sellers and small businesses whose customers want to pay in native Circle USDC.
 
-[Start the 7-day Payment Proof trial](https://www.skavio.eu/proof/?utm_source=github&utm_medium=guide&utm_campaign=usdc_merchant_launch_20261023) · [See current prices](https://www.skavio.eu/pricing/?utm_source=github&utm_medium=guide&utm_campaign=usdc_merchant_launch_20261023) · [Developer API](https://www.skavio.eu/proof/developers?utm_source=github&utm_medium=guide&utm_campaign=usdc_merchant_launch_20261023)
+[Start the 7-day Payment Proof trial](https://www.skavio.eu/proof/?utm_source=github&utm_medium=guide&utm_campaign=usdc_merchant_launch_20261023) · [See current prices](https://www.skavio.eu/proof/?utm_source=github&utm_medium=guide&utm_campaign=proof_oneoff_025_oct26#pricing) · [Developer API](https://www.skavio.eu/proof/developers?utm_source=github&utm_medium=guide&utm_campaign=usdc_merchant_launch_20261023)
 
 **Not ready to create an account?** [Try the interactive, simulated payment demo](https://www.skavio.eu/proof/demo?utm_source=github&utm_medium=guide&utm_campaign=usdc_nosignup_demo_oct26). No registration, wallet connection or real funds required.
 
@@ -15,6 +15,8 @@
 5. Wait for verified on-chain settlement. Track payment status and download an invoice, separate blockchain evidence or accounting CSV as appropriate.
 
 **The invoice and evidence PDF are not the same document.** You remain responsible for country-specific legal and tax requirements.
+
+**One-time verification:** **0.25 USDC** for a single on-chain verification with downloadable PDF evidence, **without a monthly subscription**. [Open the live Payment Proof checkout](https://www.skavio.eu/proof/?utm_source=github&utm_medium=guide&utm_campaign=proof_oneoff_025_oct26). This option is separate from the free trial and recurring merchant plans below.
 
 ## Plans paid in native Circle USDC
 
