@@ -4,6 +4,8 @@
 
 [7 Tage kostenlos testen](https://www.skavio.eu/proof/?utm_source=github&utm_medium=guide-de&utm_campaign=usdc_merchant_launch_20261023) · [Aktuelle Preise](https://www.skavio.eu/pricing/?utm_source=github&utm_medium=guide-de&utm_campaign=usdc_merchant_launch_20261023) · [Entwickler-API](https://www.skavio.eu/proof/developers?utm_source=github&utm_medium=guide-de&utm_campaign=usdc_merchant_launch_20261023)
 
+**Ohne Registrierung ausprobieren:** [Interaktive Simulation einer USDC-Zahlung](https://www.skavio.eu/proof/demo?utm_source=github&utm_medium=guide-de&utm_campaign=usdc_nosignup_demo_oct26) — ohne Wallet, ohne echtes Geld.
+
 ## So funktioniert es
 
 1. Geschäftskonto erstellen, E-Mail-Adresse bestätigen und die siebentägige Testphase starten.
