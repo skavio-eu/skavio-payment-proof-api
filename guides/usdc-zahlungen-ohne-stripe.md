@@ -2,7 +2,7 @@
 
 **Für:** Selbstständige, kleine Unternehmen und Web3-Dienstleister, die **native Circle USDC** akzeptieren möchten.
 
-[7 Tage kostenlos testen](https://www.skavio.eu/proof/?utm_source=github&utm_medium=guide-de&utm_campaign=usdc_merchant_launch_20261023) · [Aktuelle Preise](https://www.skavio.eu/pricing/?utm_source=github&utm_medium=guide-de&utm_campaign=usdc_merchant_launch_20261023) · [Entwickler-API](https://www.skavio.eu/proof/developers?utm_source=github&utm_medium=guide-de&utm_campaign=usdc_merchant_launch_20261023)
+[7 Tage kostenlos testen](https://www.skavio.eu/proof/?utm_source=github&utm_medium=guide-de&utm_campaign=usdc_merchant_launch_20261023) · [Aktuelle Preise](https://www.skavio.eu/proof/?utm_source=github&utm_medium=guide-de&utm_campaign=proof_oneoff_025_oct26#pricing) · [Entwickler-API](https://www.skavio.eu/proof/developers?utm_source=github&utm_medium=guide-de&utm_campaign=usdc_merchant_launch_20261023)
 
 **Ohne Registrierung ausprobieren:** [Interaktive Simulation einer USDC-Zahlung](https://www.skavio.eu/proof/demo?utm_source=github&utm_medium=guide-de&utm_campaign=usdc_nosignup_demo_oct26) — ohne Wallet, ohne echtes Geld.
 
@@ -15,6 +15,8 @@
 5. Nach der Blockchain-Verifizierung Zahlung, Rechnung und Buchhaltungsexporte prüfen.
 
 **Wichtig:** Ein Blockchain-Zahlungsnachweis ist nicht automatisch eine steuerlich gültige Rechnung. Steuer- und Rechtsfragen hängen vom Land und Geschäft ab.
+
+**Einmalige Verifizierung:** **0,25 USDC** für einen einzelnen Blockchain-Zahlungsnachweis inklusive PDF, **ohne Monatsabo**. [Zum aktuellen Payment-Proof-Kaufdialog](https://www.skavio.eu/proof/?utm_source=github&utm_medium=guide-de&utm_campaign=proof_oneoff_025_oct26). Daneben gibt es die kostenlose Testphase und die folgenden Tarife für die regelmäßige Nutzung.
 
 ## Tarife in USDC
 
