@@ -4,6 +4,8 @@
 
 [Start the 7-day Payment Proof trial](https://www.skavio.eu/proof/?utm_source=github&utm_medium=guide&utm_campaign=usdc_merchant_launch_20261023) · [See current prices](https://www.skavio.eu/pricing/?utm_source=github&utm_medium=guide&utm_campaign=usdc_merchant_launch_20261023) · [Developer API](https://www.skavio.eu/proof/developers?utm_source=github&utm_medium=guide&utm_campaign=usdc_merchant_launch_20261023)
 
+**Not ready to create an account?** [Try the interactive, simulated payment demo](https://www.skavio.eu/proof/demo?utm_source=github&utm_medium=guide&utm_campaign=usdc_nosignup_demo_oct26). No registration, wallet connection or real funds required.
+
 ## The actual merchant workflow
 
 1. Create a merchant account, verify the account email, and start the seven-day trial.
