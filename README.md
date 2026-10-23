@@ -4,6 +4,8 @@ Official **noncustodial native USDC invoicing and payment notification** integra
 
 **Start without Stripe:** [Accept native USDC payments with your own wallet — step-by-step](guides/accept-usdc-without-stripe.md) · **Deutsch:** [USDC-Zahlungen ohne Stripe](guides/usdc-zahlungen-ohne-stripe.md). [Try the 7-day Payment Proof trial](https://www.skavio.eu/proof/?utm_source=github&utm_medium=readme&utm_campaign=usdc_merchant_launch_20261023).
 
+**Small one-off task?** Payment Proof also offers **one verification with downloadable blockchain PDF for 0.25 USDC**, without a monthly subscription. [See the live one-off checkout](https://www.skavio.eu/proof/?utm_source=github&utm_medium=readme&utm_campaign=proof_oneoff_025_oct26). A 7-day trial and recurring plans remain available.
+
 **Before registering:** [try the no-signup Payment Proof demo](https://www.skavio.eu/proof/demo?utm_source=github&utm_medium=readme&utm_campaign=usdc_nosignup_demo_oct26) — create a simulated link, see what verification looks like, no wallet or real USDC needed.
 
 ## AI agents and MCP integrations
